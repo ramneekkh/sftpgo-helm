@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "sftpgo.fullname" . }}
+  labels:
+    {{- include "sftpgo.labels" . | nindent 4 }}
+data:
+  sftpgo.json: |
+        {
+           "data_provider": {
+              "driver": "postgresql",
+              "name": "sftpgo",
+              "host": "34.123.136.147",
+              "port": 5432,
+              "username": "myuser",
+              "password": "mypass"
+            }
+        }
